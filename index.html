@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced CSS - Assignment 1</title>
+
+    <style>
+  
+    body {
+        background-color: #050210;
+        margin: 0;
+        padding: 0;
+    }
+
+    @keyframes animacija_rotacija {
+    from{transform: rotate(0deg); }
+    to{transform: rotate(360deg); }
+    }
+
+    @keyframes animacija_appear {
+    from{ transform: scale(0,0) ;opacity: 6%;}
+    to{transform: scale(1,1);opacity: 25%;}
+    }
+
+    #container{
+    width: 540px;
+    height: 540px;
+    position: absolute;
+    left: 37%;
+    top: 30%;
+    padding: 0;
+    margin: 0;
+    }
+   
+    #krug_1::after{ /* senka  */
+        position: absolute;
+        content: '';
+        margin: 0px;
+        padding:0px;
+        width: 540px;
+        height: 540px;
+        border-radius: 50%;
+        background:linear-gradient( #fb5dad, #55fb9f, #b97aff);
+        opacity: 65%;
+        animation-name: animacija_rotacija;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        z-index: 0;
+        filter: blur(70px);
+    }  
+
+    #krug_1{ /* prsten */
+        position: absolute;
+        margin: 0px;
+        padding:0px;
+        width: 540px;
+        height: 540px;
+        border-radius: 50%;
+        background:linear-gradient( #fb5dad, #55fb9f, #b97aff);
+        animation-name: animacija_rotacija;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        z-index: 1;
+    }  
+
+    #krug_1::before{ /* praznina */ 
+        position: absolute;
+        content: '';
+        margin: 45px; 
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background:black;
+        z-index: 2;
+    }
+    
+    #krug_2{   /* tranzicija unutar kruga */
+        position: absolute;
+        margin: 45px; 
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background:rgb(48, 0, 110);
+        animation-name: animacija_appear;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        transition-timing-function: ease-out;
+        z-index: 3;
+        filter: blur(10px);
+    }     
+    </style>
+
+
+</head>
+
+<body>
+    <div id="container">
+       <a id ="krug_1"></a>
+       <a id ="krug_2"></a>
+    </div>
+  
+</body>
+
+</html>
